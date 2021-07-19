@@ -1,6 +1,4 @@
 import os
-from tkinter import *
-import time
 import requests
 from tkinter import *
 from tkinter import messagebox
@@ -71,9 +69,9 @@ class GUI:
         self.master.config(menu=self.menubar)
         self.master.protocol('WM_DELETE_WINDOW',self.close)
 
-
     def credits(self):
-        messagebox.showinfo('File Downloader','File Downloader made by Muhammad Muzammil Alam.')
+        messagebox.showinfo('Video Merger',
+                            'File Downloader created by Muhammad Muzammil Alam, if you have any problem regarding this app, you can email to muzammil.alam231@gmail.com. Thanks!')
 
     def about(self):
         messagebox.showinfo('File Downloader',"Author : \nMuhammad Muzammil Alam\
@@ -106,7 +104,6 @@ class GUI:
             sys.exit()
         else:
             pass
-
 
     def browse1(self):
         path = filedialog.asksaveasfilename()
