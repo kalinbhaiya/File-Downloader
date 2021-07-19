@@ -17,8 +17,6 @@ class Downloader:
     def download(self):
 
         download_link = requests.get(self.url)
-        master = Tk()
-        master.withdraw()
         with open(self.path, 'wb') as f:
             f.write(download_link.content)
 
