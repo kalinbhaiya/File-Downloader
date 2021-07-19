@@ -5,6 +5,8 @@ from tkinter import messagebox
 from tkinter import filedialog
 import random
 import webbrowser as wb
+import threading
+
 
 class Downloader:
 
@@ -55,7 +57,7 @@ class GUI:
         self.browse.bind('<Leave>',self.leave1)
 
         self.download = Button(master, text='DOWNLOAD!', bg='orange', fg='white', font='cursive 10 bold', cursor='hand2'
-                            , activeforeground='grey', activebackground='black',command=self.download1)
+                            , activeforeground='grey', activebackground='black',command=self.download2)
         self.download.pack(side=BOTTOM,pady=10)
         self.download.bind('<Enter>',self.enter2)
         self.download.bind('<Leave>',self.leave2)
@@ -132,6 +134,10 @@ class GUI:
 
             except requests.exceptions.MissingSchema:
                 messagebox.showerror('File Downloader','Please enter a valid URL.')
+
+    def download2(self):
+        a = threading.Thread(target=self.download1)
+        a.start()
 
 app = Tk()
 GUI(app)
